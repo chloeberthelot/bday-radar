@@ -1,0 +1,19 @@
+
+.birthday-form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 24px;
+
+}
+
+
+input,
+select {
+  padding: 8px 12px;
+  font-size: 15px;
+  font-family: inherit;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid grey;
+}
