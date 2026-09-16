@@ -36,20 +36,42 @@ function App() {
 
   return (
     <div className="app">
-      <h1>Birthday List</h1>
-      <BirthdayForm onAdd={addPerson} />
-      <BirthdayList people={people} onDelete={deletePerson} />
-      <div>
-        <button
-          onClick={() => {
-            Notification.requestPermission().then((permission) => {
-              setNotif(permission);
-            });
-          }}
-        >
-          Activer les rappels
-        </button>
+      <header className="app-header">
+        <div className="app-header-text">
+          <h1>🎂 Birthday List</h1>
+          <p>Ne rate plus jamais un anniversaire.</p>
+        </div>
+        {notif === "default" ? (
+          <button
+            className="reminder-btn"
+            onClick={() => {
+              Notification.requestPermission().then((permission) => {
+                setNotif(permission);
+              });
+            }}
+          >
+            🔔 Activer les rappels
+          </button>
+        ) : (
+          <span className={`reminder-status reminder-status--${notif}`}>
+            {notif === "granted" ? "🔔 Rappels activés" : "🔕 Rappels bloqués"}
+          </span>
+        )}
+      </header>
+
+      <div className="card">
+        <h2>Ajouter un anniversaire</h2>
+        <BirthdayForm onAdd={addPerson} />
       </div>
+
+      {people.length > 0 ? (
+        <BirthdayList people={people} onDelete={deletePerson} />
+      ) : (
+        <div className="empty-state">
+          <span className="emoji">🎉</span>
+          <p>Aucun anniversaire pour l'instant. Ajoute quelqu'un pour commencer !</p>
+        </div>
+      )}
     </div>
   );
 }

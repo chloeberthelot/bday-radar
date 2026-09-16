@@ -1,15 +1,31 @@
 :root {
   --text: #6b6375;
   --text-h: #08060d;
-  --bg: #fff;
+  --bg: #fdfcff;
+  --surface: #ffffff;
   --border: #e5e4e7;
   --code-bg: #f4f3ec;
   --accent: #aa3bff;
   --accent-bg: rgba(170, 59, 255, 0.1);
   --accent-border: rgba(170, 59, 255, 0.5);
   --social-bg: rgba(244, 243, 236, 0.5);
+
+  --family: #e11d5e;
+  --family-bg: rgba(225, 29, 94, 0.1);
+  --friend: #0d9488;
+  --friend-bg: rgba(13, 148, 136, 0.12);
+  --colleague: #d97706;
+  --colleague-bg: rgba(217, 119, 6, 0.12);
+  --other: #64748b;
+  --other-bg: rgba(100, 116, 139, 0.12);
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+
   --shadow:
     rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --shadow-sm: rgba(20, 10, 40, 0.07) 0 2px 10px;
 
   --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
   --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
@@ -34,15 +50,27 @@
   :root {
     --text: #9ca3af;
     --text-h: #f3f4f6;
-    --bg: #16171d;
+    --bg: #121218;
+    --surface: #191a22;
     --border: #2e303a;
     --code-bg: #1f2028;
     --accent: #c084fc;
     --accent-bg: rgba(192, 132, 252, 0.15);
     --accent-border: rgba(192, 132, 252, 0.5);
     --social-bg: rgba(47, 48, 58, 0.5);
+
+    --family: #fb7185;
+    --family-bg: rgba(251, 113, 133, 0.15);
+    --friend: #2dd4bf;
+    --friend-bg: rgba(45, 212, 191, 0.15);
+    --colleague: #fbbf24;
+    --colleague-bg: rgba(251, 191, 36, 0.15);
+    --other: #94a3b8;
+    --other-bg: rgba(148, 163, 184, 0.15);
+
     --shadow:
       rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
+    --shadow-sm: rgba(0, 0, 0, 0.35) 0 2px 10px;
   }
 
   #social .button-icon {
@@ -52,14 +80,15 @@
 
 body {
   margin: 0;
+  min-height: 100svh;
+  background:
+    radial-gradient(circle at 15% -10%, var(--accent-bg), transparent 45%),
+    radial-gradient(circle at 100% 0%, var(--family-bg), transparent 40%),
+    var(--bg);
 }
 
 #root {
-  width: 1126px;
   max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
   min-height: 100svh;
   display: flex;
   flex-direction: column;
@@ -69,28 +98,23 @@ body {
 h1,
 h2 {
   font-family: var(--heading);
-  font-weight: 500;
+  font-weight: 600;
   color: var(--text-h);
 }
 
 h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+  font-size: 32px;
+  letter-spacing: -0.8px;
+  margin: 0;
 }
+
 h2 {
-  font-size: 24px;
+  font-size: 17px;
   line-height: 118%;
-  letter-spacing: -0.24px;
+  letter-spacing: -0.2px;
   margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
 }
+
 p {
   margin: 0;
 }

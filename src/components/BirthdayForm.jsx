@@ -4,30 +4,31 @@ import "../css/BirthdayForm.css";
 function BirthdayForm({ onAdd }) {
   const [name, setName] = useState("");
   const [dob, setDob] = useState("");
-  const [category, setCategory] = useState("");
+  const [category, setCategory] = useState("family");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     onAdd({ name, dob, category });
     setName("");
     setDob("");
-    setCategory("");
+    setCategory("family");
   };
 
   return (
-    <div>
-      <form className="birthday-form" onSubmit={handleSubmit}>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          placeholder="Prénom"
-        />
+    <form className="birthday-form" onSubmit={handleSubmit}>
+      <input
+        type="text"
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Prénom"
+        required
+      />
+      <div className="form-row">
         <input
           type="date"
           value={dob}
           onChange={(e) => setDob(e.target.value)}
-          placeholder="Date de naissance"
+          required
         />
         <select value={category} onChange={(e) => setCategory(e.target.value)}>
           <option value="family">Famille</option>
@@ -35,11 +36,11 @@ function BirthdayForm({ onAdd }) {
           <option value="colleague">Collègue</option>
           <option value="other">Autre</option>
         </select>
-        <button className="submit-btn" type="submit">
-          Ajouter
-        </button>
-      </form>
-    </div>
+      </div>
+      <button className="submit-btn" type="submit">
+        + Ajouter
+      </button>
+    </form>
   );
 }
 
