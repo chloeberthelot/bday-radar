@@ -38,7 +38,7 @@ function App() {
     <div className="app">
       <header className="app-header">
         <div className="app-header-text">
-          <h1>🎂 Birthday List</h1>
+          <h1>🎂 Birthday Radar</h1>
           <p>Ne rate plus jamais un anniversaire.</p>
         </div>
         {notif === "default" ? (
@@ -69,7 +69,9 @@ function App() {
       ) : (
         <div className="empty-state">
           <span className="emoji">🎉</span>
-          <p>Aucun anniversaire pour l'instant. Ajoute quelqu'un pour commencer !</p>
+          <p>
+            Aucun anniversaire pour l'instant. Ajoute quelqu'un pour commencer !
+          </p>
         </div>
       )}
     </div>
